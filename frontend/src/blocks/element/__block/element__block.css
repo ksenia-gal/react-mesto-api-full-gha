@@ -1,0 +1,29 @@
+.element__block {
+  color: #000000;
+  background-color: #FFFFFF;
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 25px 15px 31px 21px;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+@media screen and (max-width: 976px) {
+  .element__block {
+    margin: 22px 13px 27px 18px;
+  }
+}
+
+@media screen and (max-width: 870px) {
+  .element__block {
+    margin: 16px 8px 20px 14px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .element__block {
+    margin: 25px 15px 31px 21px;
+  }
+}

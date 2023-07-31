@@ -1,0 +1,12 @@
+.popup__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-sizing: border-box;
+  z-index: 2;
+  padding: 0;
+  margin: 90px auto auto;
+    
+}

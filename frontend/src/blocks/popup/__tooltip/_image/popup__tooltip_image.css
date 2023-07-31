@@ -1,0 +1,7 @@
+.popup__tooltip_image {
+    max-width: 430px;
+    max-height: 330px;
+    background: none;
+    object-fit: cover;
+    overflow: hidden;
+}
