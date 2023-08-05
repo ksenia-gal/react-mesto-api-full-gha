@@ -1,5 +1,5 @@
 const BASE_URL = "https://auth.nomoreparties.co";
-
+//const BASE_URL = "http://localhost:4000";
 // обработка ответа сервера
 function checkResponse(res) {
   if (res.ok) {

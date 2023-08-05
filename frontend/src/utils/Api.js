@@ -24,9 +24,7 @@ class Api {
   // загрузка информации о пользователе с сервера
   async getUserData() {
     const response = await this._request("users/me", {
-      headers: {
-        authorization: this._token,
-      },
+      headers: this._headers,
     });
     return response;
   }
@@ -90,10 +88,7 @@ class Api {
   async changeAvatar(src) {
     const response = await this._request(`users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        authorization: this._token,
-        "Content-Type": "application/json",
-      },
+      headers: this._headers,
       body: JSON.stringify({
         avatar: src,
       }),
@@ -105,8 +100,9 @@ class Api {
 // создание экземпляра класса Api
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
+  //baseUrl: "http://localhost:4000",
   headers: {
-    authorization: "dc4cc6fb-4780-4de8-be6c-e7f4fd89da24",
+    authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json",
   },
 });

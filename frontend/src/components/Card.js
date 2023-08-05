@@ -9,7 +9,7 @@ function Card(props) {
   const isOwn = props.card.owner._id === currentUser._id;
   // проверка, есть ли у карточки лайк текущего пользователя
   const _likedCard = props.card.likes.some(
-    (item) => item._id === currentUser._id
+    (item) => item === currentUser._id
   );
   const cardLikeButton = `element__like-button ${
     _likedCard ? "element__like-button_active" : ""
