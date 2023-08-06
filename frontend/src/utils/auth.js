@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 // const BASE_URL = "https://auth.nomoreparties.co";
 const BASE_URL = "http://localhost:4000";
+=======
+const BASE_URL = "https://auth.nomoreparties.co";
+//const BASE_URL = "http://localhost:4000";
+>>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
 // обработка ответа сервера
 function checkResponse(res) {
   if (res.ok) {

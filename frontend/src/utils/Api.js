@@ -91,7 +91,10 @@ class Api {
   async changeAvatar(src) {
     const response = await this._request(`users/me/avatar`, {
       method: "PATCH",
+<<<<<<< HEAD
       credentials: "include",
+=======
+>>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
       headers: this._headers,
       body: JSON.stringify({
         avatar: src,
@@ -103,8 +106,13 @@ class Api {
 
 // создание экземпляра класса Api
 const api = new Api({
+<<<<<<< HEAD
   // baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
   baseUrl: "http://localhost:3001",
+=======
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
+  //baseUrl: "http://localhost:4000",
+>>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
   headers: {
     authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json",
