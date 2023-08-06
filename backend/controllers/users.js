@@ -19,12 +19,7 @@ const login = (req, res, next) => {
         { expiresIn: '7d' },
       );
         // вернем токен
-      res.cookie('token', token, {
-        maxAge: 3600000 * 24 * 7,
-        httpOnly: true,
-        sameSite: true,
-      })
-        .send({ token });
+      res.send({ token });
       throw new AuthorizationError('Неправильные почта или пароль');
     })
     .catch(next);

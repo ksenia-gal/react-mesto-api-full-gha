@@ -1,8 +1,7 @@
 class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
-    this._userUrl = `${this._baseUrl}/users/me`;
-    this._token = headers["authorization"];
+    // this._userUrl = `${this._baseUrl}/users/me`;
     this._headers = headers;
   }
 
@@ -39,7 +38,6 @@ class Api {
   async editProfile(profileData) {
     const response = await this._request("users/me", {
       method: "PATCH",
-      credentials: "include",
       headers: this._headers,
       body: JSON.stringify({
         name: profileData.name,
@@ -52,7 +50,6 @@ class Api {
   async addNewCard(cardData) {
     const response = await this._request("cards", {
       method: "POST",
-      credentials: "include",
       headers: this._headers,
       body: JSON.stringify(cardData),
     });
@@ -81,7 +78,6 @@ class Api {
   async deleteCard(cardId) {
     const response = await this._request(`cards/${cardId}`, {
       method: "DELETE",
-      credentials: "include",
       headers: this._headers,
     });
     return response;
@@ -91,10 +87,6 @@ class Api {
   async changeAvatar(src) {
     const response = await this._request(`users/me/avatar`, {
       method: "PATCH",
-<<<<<<< HEAD
-      credentials: "include",
-=======
->>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
       headers: this._headers,
       body: JSON.stringify({
         avatar: src,
@@ -106,18 +98,11 @@ class Api {
 
 // создание экземпляра класса Api
 const api = new Api({
-<<<<<<< HEAD
   // baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
-  baseUrl: "http://localhost:3001",
-=======
-  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
-  //baseUrl: "http://localhost:4000",
->>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
+  baseUrl: "http://localhost:3000",
   headers: {
     authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "Content-Type": "application/json",
-
-
   },
 });
 

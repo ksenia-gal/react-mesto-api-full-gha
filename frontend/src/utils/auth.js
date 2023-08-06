@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 // const BASE_URL = "https://auth.nomoreparties.co";
-const BASE_URL = "http://localhost:4000";
-=======
-const BASE_URL = "https://auth.nomoreparties.co";
-//const BASE_URL = "http://localhost:4000";
->>>>>>> 08804b525bb50f60e5262d9957fb708f1ab80d81
+const BASE_URL = "http://localhost:3000";
+
 // обработка ответа сервера
 function checkResponse(res) {
   if (res.ok) {
@@ -17,7 +13,6 @@ export const login = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -38,7 +33,6 @@ export const register = (email, password) => {
   return fetch(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
