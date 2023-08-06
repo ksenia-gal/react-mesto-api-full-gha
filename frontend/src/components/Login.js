@@ -52,7 +52,7 @@ function Login({ onLogin }) {
           onChange={handlePassword}
           placeholder="Пароль"
           className="auth__input"
-          minLength="6"
+          minLength="4"
           maxLength="10"
         />
         <button type="submit" className="auth__submit-button">

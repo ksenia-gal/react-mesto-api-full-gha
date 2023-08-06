@@ -22,6 +22,7 @@ const login = (req, res, next) => {
       res.cookie('token', token, {
         maxAge: 3600000 * 24 * 7,
         httpOnly: true,
+        sameSite: true,
       })
         .send({ token });
       throw new AuthorizationError('Неправильные почта или пароль');

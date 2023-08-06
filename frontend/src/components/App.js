@@ -53,7 +53,7 @@ function App() {
         .then((res) => {
           // авторизуем пользователя
           setIsLoggedIn(true);
-          setEmail(res.data.email);
+          setEmail(res.email);
           navigate("/", { replace: true });
         })
         .catch(console.error);
@@ -214,7 +214,7 @@ function App() {
   // обработчик лайков карточки
   function handleCardLike(card) {
     // проверка, есть ли лайк на этой карточке
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((i) => i === currentUser._id);
     if (isLiked) {
       api
         .deleteLike(card._id)

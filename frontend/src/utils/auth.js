@@ -1,5 +1,5 @@
-const BASE_URL = "https://auth.nomoreparties.co";
-
+// const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "http://localhost:4000";
 // обработка ответа сервера
 function checkResponse(res) {
   if (res.ok) {
@@ -7,20 +7,6 @@ function checkResponse(res) {
   }
   return Promise.reject(`${res.status}`);
 }
-
-export const register = (email, password) => {
-  return fetch(`${BASE_URL}/signup`, {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      email: email,
-      password: password,
-    }),
-  }).then(checkResponse);
-};
 
 export const login = (email, password) => {
   return fetch(`${BASE_URL}/signin`, {
@@ -41,6 +27,20 @@ export const login = (email, password) => {
         return data;
       }
     });
+};
+
+export const register = (email, password) => {
+  return fetch(`${BASE_URL}/signup`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  }).then(checkResponse);
 };
 
 // метод авторизации для проверки токена и получения данных пользователя
