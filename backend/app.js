@@ -11,7 +11,7 @@ const { errorHandler } = require('./middlewares/errorHandler');
 const cors = require('cors');
 
 // Слушаем 3000 порт
-const { PORT = 3001 } = process.env;
+const { PORT = 3000 } = process.env;
 
 // создание приложения
 const app = express();
