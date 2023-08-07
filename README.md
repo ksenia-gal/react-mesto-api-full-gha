@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.14.68
+IP 158.160.14.68
 
-Frontend https://...
+Frontend https://kseniagal.nomoreparties.co
 
-Backend https://...
+Backend https://kseniagal-backend.nomoreparties.co

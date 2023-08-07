@@ -49,7 +49,7 @@ export const checkToken = (jwt) => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${jwt}`,
+      authorization: `Bearer ${jwt}`,
     },
   }).then(checkResponse);
 };
