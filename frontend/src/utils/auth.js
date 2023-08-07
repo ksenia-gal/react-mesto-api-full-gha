@@ -1,5 +1,6 @@
 // const BASE_URL = "https://auth.nomoreparties.co";
-const BASE_URL = "http://localhost:3000";
+// const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://kseniagal-backend.nomoreparties.co";
 
 // обработка ответа сервера
 function checkResponse(res) {
