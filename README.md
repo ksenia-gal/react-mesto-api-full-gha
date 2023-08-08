@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP 84.201.143.25
+IP 158.160.69.26
 
 Frontend https://kseniagal.nomoreparties.co
 

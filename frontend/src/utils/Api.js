@@ -2,7 +2,7 @@ class Api {
   constructor({ baseUrl, headers }) {
     this._baseUrl = baseUrl;
     // this._userUrl = `${this._baseUrl}/users/me`;
-    
+    this._headers = headers;
   }
 
   // обработка ответа сервера
@@ -23,10 +23,7 @@ class Api {
   // загрузка информации о пользователе с сервера
   async getUserData() {
     const response = await this._request("users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
     });
     return response;
   }
@@ -41,10 +38,7 @@ class Api {
   async editProfile(profileData) {
     const response = await this._request("users/me", {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
       body: JSON.stringify({
         name: profileData.name,
         about: profileData.about,
@@ -56,10 +50,7 @@ class Api {
   async addNewCard(cardData) {
     const response = await this._request("cards", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
       body: JSON.stringify(cardData),
     });
     return response;
@@ -69,10 +60,7 @@ class Api {
   async putLike(cardId) {
     const response = await this._request(`cards/${cardId}/likes`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
     });
     return response;
   }
@@ -81,10 +69,7 @@ class Api {
   async deleteLike(cardId) {
     const response = await this._request(`cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
     });
     return response;
   }
@@ -93,10 +78,7 @@ class Api {
   async deleteCard(cardId) {
     const response = await this._request(`cards/${cardId}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
     });
     return response;
   }
@@ -105,10 +87,7 @@ class Api {
   async changeAvatar(src) {
     const response = await this._request(`users/me/avatar`, {
       method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      },
+      headers: this._headers,
       body: JSON.stringify({
         avatar: src,
       }),
@@ -121,6 +100,10 @@ class Api {
 const api = new Api({
   // baseUrl: "https://mesto.nomoreparties.co/v1/cohort-65",
   baseUrl: "https://kseniagal-backend.nomoreparties.co",
+  headers: {
+    authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    "Content-Type": "application/json",
+  },
 });
 
 export default api;
