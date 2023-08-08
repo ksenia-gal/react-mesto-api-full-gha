@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cors = require('./middlewares/cors');
 const limiter = require('./middlewares/limiter');
-// const { requestLogger, errorLogger } = require('./middlewares/logger')
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/router');
 const { errorHandler } = require('./middlewares/errorHandler');
 
@@ -30,11 +30,11 @@ app.use(cors);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
-// app.use(requestLogger);
+app.use(requestLogger);
 
 app.use(routes);
 
-// app.use(errorLogger);
+app.use(errorLogger);
 
 app.use(errors());
 
