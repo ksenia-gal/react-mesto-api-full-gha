@@ -1,10 +1,10 @@
 const allowedCors = [
   'https://kseniagal.nomoreparties.co',
   'http://kseniagal.nomoreparties.co',
-  'https://localhost:3000',
-  'http://localhost:3000',
-  'https://localhost:3001',
-  'http://localhost:3001',
+  // 'https://localhost:3000',
+  // 'http://localhost:3000',
+  // 'https://localhost:3001',
+  // 'http://localhost:3001',
 ];
 
 module.exports = (req, res, next) => {
