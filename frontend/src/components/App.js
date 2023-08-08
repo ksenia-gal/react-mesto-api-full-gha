@@ -101,39 +101,39 @@ function App() {
   }
 
   // эффект получения данных пользователя при загрузке страницы
-  // React.useEffect(() => {
-  //   api
-  //     .getUserData()
-  //     .then((data) => {
-  //       setCurrentUser(data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  React.useEffect(() => {
+    api
+      .getUserData()
+      .then((data) => {
+        setCurrentUser(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   // эффект получения карточек при загрузке страницы
-  // React.useEffect(() => {
-  //   api
-  //     .getInitialCards()
-  //     .then((initialCards) => {
-  //       setCards(initialCards);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
-
   React.useEffect(() => {
-    isLoggedIn &&
-      Promise.all([api.getUserData(), api.getInitialCards()])
-        .then(([userRes, cards]) => {
-          setCurrentUser(userRes);
-          console.log(userRes, cards);
-          setCards(cards.reverse());
-        })
-        .catch((err) => console.log(err));
-  }, [isLoggedIn]);
+    api
+      .getInitialCards()
+      .then((initialCards) => {
+        setCards(initialCards);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  // React.useEffect(() => {
+  //   isLoggedIn &&
+  //     Promise.all([api.getUserData(), api.getInitialCards()])
+  //       .then(([userRes, cards]) => {
+  //         setCurrentUser(userRes);
+  //         console.log(userRes, cards);
+  //         setCards(cards.reverse());
+  //       })
+  //       .catch((err) => console.log(err));
+  // }, [isLoggedIn]);
 
   // обработчик открытия попапа EditAvatarPopup
   function handleEditAvatarClick() {
