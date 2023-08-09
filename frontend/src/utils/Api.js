@@ -96,7 +96,7 @@ class Api {
   }
 }
 
-создание экземпляра класса Api
+//создание экземпляра класса Api
 const api = new Api({
   baseUrl: "https://api.kseniag.nomoreparties.co",
   headers: {
