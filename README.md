@@ -11,6 +11,6 @@
 
 IP 158.160.69.26
 
-Frontend https://kseniagal.nomoreparties.co
+Frontend https://kseniag.nomoreparties.co
 
-Backend https://kseniagal-backend.nomoreparties.co
+Backend https://api.kseniag.nomoreparties.co
