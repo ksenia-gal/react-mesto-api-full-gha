@@ -1,6 +1,6 @@
 const allowedCors = [
   'https://kseniag.nomoreparties.co',
-  // 'http://kseniagal.nomoreparties.co',
+  'http://kseniag.nomoreparties.co',
   // 'https://localhost:3000',
   // 'http://localhost:3000',
   // 'https://localhost:3001',
