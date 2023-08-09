@@ -46,8 +46,6 @@ function App() {
   function tokenCheck() {
     //если у пользователя есть токен в localStorage, эта ф-я проверит, действующий он или нет
     const jwt = localStorage.getItem("jwt");
-    console.log(jwt);
-
     if (jwt) {
       //проверим токен
       auth
@@ -123,17 +121,6 @@ function App() {
         console.log(err);
       });
   }, []);
-
-  // React.useEffect(() => {
-  //   isLoggedIn &&
-  //     Promise.all([api.getUserData(), api.getInitialCards()])
-  //       .then(([userRes, cards]) => {
-  //         setCurrentUser(userRes);
-  //         console.log(userRes, cards);
-  //         setCards(cards.reverse());
-  //       })
-  //       .catch((err) => console.log(err));
-  // }, [isLoggedIn]);
 
   // обработчик открытия попапа EditAvatarPopup
   function handleEditAvatarClick() {
