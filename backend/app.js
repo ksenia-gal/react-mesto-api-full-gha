@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 // const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-const cors = require('./middlewares/cors');
+const cors = require('cors');
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/router');
@@ -26,7 +26,8 @@ app.use(bodyParser.json());
 
 app.use(limiter);
 
-app.use(cors);
+// app.use(cors);
+app.use(cors({ origin: ['http://kseniagal.nomoreparties.co', 'https://kseniag.nomoreparties.co'] }));
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
