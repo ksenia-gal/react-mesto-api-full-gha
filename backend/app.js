@@ -10,7 +10,7 @@ const routes = require('./routes/router');
 const { errorHandler } = require('./middlewares/errorHandler');
 
 // Слушаем 3000 порт
-const { PORT = 3000 } = process.env;
+const { PORT = 4001 } = process.env;
 
 // создание приложения
 const app = express();
@@ -21,8 +21,6 @@ app.use(express.json());
 
 app.use(bodyParser.json());
 
-app.use(limiter);
-
 app.use(cors);
 
 app.get('/crash-test', () => {
@@ -30,6 +28,8 @@ app.get('/crash-test', () => {
     throw new Error('Сервер сейчас упадёт');
   }, 0);
 });
+
+app.use(limiter);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
