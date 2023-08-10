@@ -46,6 +46,7 @@ function App() {
   function tokenCheck() {
     //если у пользователя есть токен в localStorage, эта ф-я проверит, действующий он или нет
     const jwt = localStorage.getItem("jwt");
+
     if (jwt) {
       //проверим токен
       auth
