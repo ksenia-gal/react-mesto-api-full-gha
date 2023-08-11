@@ -10,7 +10,6 @@ const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/router');
 const { errorHandler } = require('./middlewares/errorHandler');
-const NotFoundError = require('./errors/notFoundError');
 
 // Слушаем 3000 порт
 const { PORT = 3000 } = process.env;
