@@ -1,3 +1,5 @@
+// const BASE_URL = "https://auth.nomoreparties.co";
+// const BASE_URL = "http://localhost:3000";
 const BASE_URL = "https://api.kseniag.nomoreparties.co";
 
 // обработка ответа сервера
