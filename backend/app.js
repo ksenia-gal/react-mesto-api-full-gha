@@ -2,16 +2,18 @@ const express = require('express');
 const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-// const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
-const cors = require('cors');
+const cors = require('./middlewares/cors');
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/router');
 const { errorHandler } = require('./middlewares/errorHandler');
+const NotFoundError = require('./errors/notFoundError');
 
 // Слушаем 3000 порт
 const { PORT = 3000 } = process.env;
+
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 // создание приложения
 const app = express();
@@ -26,16 +28,15 @@ app.use(bodyParser.json());
 
 app.use(limiter);
 
-// app.use(cors);
-app.use(cors({ origin: ['http://kseniag.nomoreparties.co', 'https://kseniag.nomoreparties.co'] }));
-
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+app.use(cors);
 
 app.use(requestLogger);
 
 app.use(routes);
 
 app.use(errorLogger);
+
+app.use((req, res, next) => next(new NotFoundError('Страница не существует')));
 
 app.use(errors());
 
