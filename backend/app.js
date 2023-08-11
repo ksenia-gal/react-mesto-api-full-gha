@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const { errors } = require('celebrate');
-const cors = require('./middlewares/cors');
+const cors = require('cors');
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/router');
@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 app.use(requestLogger);
 
-app.use(cors);
+app.use(cors({ origin: ['http://kseniag.nomoreparties.co', 'https://kseniag.nomoreparties.co'] }));
 
 app.get('/crash-test', () => {
   setTimeout(() => {
