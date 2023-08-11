@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.14.68
+IP 158.160.69.26
 
-Frontend https://...
+Frontend https://kseniag.nomoreparties.co
 
-Backend https://...
+Backend https://api.kseniag.nomoreparties.co
