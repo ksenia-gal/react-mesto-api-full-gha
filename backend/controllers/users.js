@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs'); // импортируем bcrypt
 const jwt = require('jsonwebtoken'); // импортируем модуль jsonwebtoken
 const User = require('../models/user');
 
-const { NODE_ENV, JWT_SECRET } = require('../utils/constants');
+const { NODE_ENV, JWT_SECRET } = process.env;
 const NotFoundError = require('../errors/notFoundError');
 const BadRequestError = require('../errors/badRequestError');
 const ConflictError = require('../errors/conflictError');
