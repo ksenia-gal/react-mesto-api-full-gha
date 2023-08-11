@@ -4,7 +4,7 @@ const expressWinston = require('express-winston');
 // создадим логгер запросов
 const requestLogger = expressWinston.logger({
   transports: [
-    new winston.transports.File({ filename: 'request.log' }), // отвечет куда пистаь лог
+    new winston.transports.File({ filename: 'request.log' }), // отвечает куда писать лог
   ],
   format: winston.format.json(), // отвечает за записи логов
 });
