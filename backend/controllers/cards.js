@@ -3,7 +3,7 @@ const ForbiddenError = require('../errors/forbiddenError');
 const BadRequestError = require('../errors/badRequestError');
 const NotFoundError = require('../errors/notFoundError');
 
-// добавление массива карточек на страницу
+// добавление массива карточек на страницу.
 const getCards = (req, res, next) => {
   Card.find({})
     .then((cards) => res.send(cards))
