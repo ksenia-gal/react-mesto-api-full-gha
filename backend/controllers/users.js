@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs'); // импортируем bcrypt
 const jwt = require('jsonwebtoken'); // импортируем модуль jsonwebtoken
-const { NODE_ENV, SECRET_KEY_DEV, SECRET_KEY } = require('../utils/constants');
+const { NODE_ENV, SECRET_DEV_KEY, SECRET_SIGNING_KEY } = require('../utils/constants');
 const User = require('../models/user');
 const NotFoundError = require('../errors/notFoundError');
 const BadRequestError = require('../errors/badRequestError');
@@ -14,7 +14,7 @@ const login = (req, res, next) => {
       // создадим токен
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? SECRET_KEY : SECRET_KEY_DEV,
+        NODE_ENV === 'production' ? SECRET_SIGNING_KEY : SECRET_DEV_KEY,
         { expiresIn: '7d' },
       );
         // вернем токен
