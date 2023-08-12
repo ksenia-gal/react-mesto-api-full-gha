@@ -12,9 +12,9 @@ const { INTERNAL_SERVER_ERROR } = require('../errors/errorsStatusCode');
 //   next();
 // };
 
-module.exports = { errorHandler };
+// module.exports = { errorHandler };
 
-const errorHandler = (err, req res, next) => {
+const errorHandler = (err, req, res, next) => {
   const statusCode = INTERNAL_SERVER_ERROR;
   const message = statusCode === INTERNAL_SERVER_ERROR ? 'На сервере произошла ошибка' : err.message;
   res.status(statusCode).send({ message });
