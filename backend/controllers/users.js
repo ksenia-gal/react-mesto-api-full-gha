@@ -1,4 +1,4 @@
-const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV,SECRET_KEY_DEV, SECRET_SIGNING_KEY } = require('../utils/constants');
 
 const bcrypt = require('bcryptjs'); // импортируем bcrypt
 const jwt = require('jsonwebtoken'); // импортируем модуль jsonwebtoken
@@ -15,7 +15,7 @@ const login = (req, res, next) => {
       // создадим токен
       const token = jwt.sign(
         { _id: user._id },
-        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
+        NODE_ENV === 'production' ? SECRET_SIGNING_KEY : SECRET_KEY_DEV,
         { expiresIn: '7d' },
       );
         // вернем токен
