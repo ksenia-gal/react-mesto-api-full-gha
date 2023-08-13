@@ -22,14 +22,20 @@ class Api {
   // загрузка информации о пользователе с сервера
   async getUserData() {
     const response = await this._request("users/me", {
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
     });
     return response;
   }
 
   // загрузка карточек с сервера
   async getInitialCards() {
-    const response = await this._request("cards", { headers: this._headers });
+    const response = await this._request("cards", { headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+      }, });
     return response;
   }
 
@@ -37,7 +43,10 @@ class Api {
   async editProfile(profileData) {
     const response = await this._request("users/me", {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
       body: JSON.stringify({
         name: profileData.name,
         about: profileData.about,
@@ -49,7 +58,10 @@ class Api {
   async addNewCard(cardData) {
     const response = await this._request("cards", {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
       body: JSON.stringify(cardData),
     });
     return response;
@@ -59,7 +71,10 @@ class Api {
   async putLike(cardId) {
     const response = await this._request(`cards/${cardId}/likes`, {
       method: "PUT",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
     });
     return response;
   }
@@ -68,7 +83,10 @@ class Api {
   async deleteLike(cardId) {
     const response = await this._request(`cards/${cardId}/likes`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
     });
     return response;
   }
@@ -86,7 +104,10 @@ class Api {
   async changeAvatar(src) {
     const response = await this._request(`users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        "Content-Type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
       body: JSON.stringify({
         avatar: src,
       }),
